@@ -23,14 +23,14 @@
       <label>Dodaj zdjęcie</label>
       <!-- upload a file -->
       <h3>Doświadczenie</h3>
-       <label>rok rozpoczęcia:<input type="text" ng-model="workBeginningYear"></label>
-      <label>rok zakończenia:<input type="text" ng-model="workFinishYear"></label>
+       <label>rok rozpoczęcia:<input type="text" ng-model="startDate"></label>
+      <label>rok zakończenia:<input type="text" ng-model="endDate"></label>
       <label>nazwa firmy:<input type="text" ng-model="companyName"></label>
       <label>stanowisko:<input type="text" ng-model="positionName"></label>
       <label>opis zadań:<input type="text" ng-model="positionDescription"></label>
       <h3>Wykształcenie</h3>
-      <label>rok rozpoczęcia:<input type="number" ng-model="beginningYear"></label>
-      <label>rok zakończenia:<input type="number" ng-model="finishYear"></label>
+      <label>rok rozpoczęcia:<input type="number" ng-model="schoolStartDate"></label>
+      <label>rok zakończenia:<input type="number" ng-model="schoolEndDate"></label>
       <label>nazwa uczelni:<input type="text" ng-model="schoolName"></label>
       <label>kierunek:<input type="text" ng-model="schoolSubject"></label>
       <label>tytuł:<input type="text" ng-model="degree"></label>
@@ -55,10 +55,10 @@
       {{ phoneNumber }}<br>
       {{ address }}<br>
       <h5>Doświadczenie</h5>
-      {{ workBeginningYear + "-" + workFinishYear + " " + companyName + "-" + positionName }}
+      {{ startDate + "-" + endDate + " " + companyName + "-" + positionName }}
       {{ positionDescription }}
       <h5>Wykształcenie</h5>
-      {{ beginningYear + "-" + finishYear + " " + schoolName + "-" + schoolSubject }}
+      {{ schoolStartDate + "-" + schoolEndDate + " " + schoolName + "-" + schoolSubject }}
       {{ degree }}
       <h5>Kursy i szkolenia</h5>
       {{ courseYear + " " + courseOrganization + " " +  courseName }}

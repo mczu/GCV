@@ -7,14 +7,14 @@ app.controller('myCtrl', function($scope) {
   $scope.phoneNumber = 596690424;
   $scope.address = "Gdansk";
   //experience
-  $scope.workBeginningYear = 2014;
-  $scope.workFinishYear;
+  $scope.startDate= 2014;
+  $scope.endDate;
   $scope.companyName = "IKM";
   $scope.positionName = "organizator wydarzeń";
   $scope.positionDescription = "organizowanie eventów";
   //education
-  $scope.beginningYear = 2010;
-  $scope.finishYear = 2015;
+  $scope.schoolStartDate= 2010;
+  $scope.schoolEndDate= 2015;
   $scope.schoolName = "Uniwersytet Gdański";
   $scope.schoolSubject = "Kulturoznawstwo";
   $scope.degree = "magister kulturoznawstwa";
