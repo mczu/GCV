@@ -6,6 +6,9 @@ app.controller('myCtrl', function($scope) {
   $scope.email = "jan.kowalski@gmail.com";
   $scope.phoneNumber = 596690424;
   $scope.address = "Gdansk";
+  $scope.fullName = function(){
+    return $scope.firstName + " " + $scope.lastName;
+  };
   //experience
   $scope.startDate= 2014;
   $scope.endDate;
