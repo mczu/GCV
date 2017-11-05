@@ -15,6 +15,23 @@ app.controller('myCtrl', function($scope) {
   $scope.companyName = "IKM";
   $scope.positionName = "organizator wydarzeń";
   $scope.positionDescription = "organizowanie eventów";
+  //experience
+  $scope.experience = [
+  {
+  "startDate" : 2013,
+  "endDate" : 2013,
+  "companyName": "Świetlica",
+  "positionName": "asystent",
+  "positionDescription" : "asystowanie"
+  },
+  {
+  "startDate" : 2013,
+  "endDate" : 2013,
+  "companyName": "Świetlica",
+  "positionName": "asystent",
+  "positionDescription" : "asystowanie"
+   }
+   ];
   //education
   $scope.schoolStartDate= 2010;
   $scope.schoolEndDate= 2015;
@@ -29,6 +46,7 @@ app.controller('myCtrl', function($scope) {
   //language skills
   $scope.foreignLanguage = "angielski";
   $scope.languageLevel = "B2";
+  $scope.languages = ["angielski", "niemiecki", "hiszpański", "japoński", "rosyjski"];
   //skills
   $scope.skill = "obsługa pakietu Office";
   //hobbies

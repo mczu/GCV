@@ -42,6 +42,12 @@
       <h3>Znajomość języków</h3>
       <label>język obcy:<input type="text" ng-model="foreignLanguage"></label>
       <label>poziom znajomości:<input type="text" ng-model="languageLevel"></label>
+      <ul>
+        <li ng-repeat="x in languages">{{ x }}</li>
+      </ul>
+      <select>
+        <option ng-repeat="x in languages">{{ x }}</option>
+      </select>
       <h3>Umiejętności</h3>
       <label>nazwa umiejętności:<input type="text" ng-model="skill"></label>
       <h3>Zainteresowania</h3>
@@ -57,6 +63,9 @@
       <h5>Doświadczenie</h5>
       {{ startDate + "-" + endDate + " " + companyName + "-" + positionName }}
       {{ positionDescription }}
+      <ul>
+        <li ng-repeat="x in experience">{{ x.startDate + " - " + x.endDate + " " + x.companyName + " - " + x.positionName + "(" + x.positionDescription + ")" }}</li>
+      </ul>
       <h5>Wykształcenie</h5>
       {{ schoolStartDate + "-" + schoolEndDate + " " + schoolName + "-" + schoolSubject }}
       {{ degree }}
