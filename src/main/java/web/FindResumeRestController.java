@@ -3,7 +3,6 @@ package web;
 import lombok.AllArgsConstructor;
 import model.Resume;
 import model.ResumeId;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +18,6 @@ public class FindResumeRestController {
     public ResponseEntity<Resume> findResume(@PathVariable String id) {
         return resumeRepository.find(new ResumeId(id))
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+                .orElse(ResponseEntity.ok(new Resume()));
     }
 }

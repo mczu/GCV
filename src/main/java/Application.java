@@ -1,3 +1,4 @@
+import config.LoginConfiguration;
 import config.ResumeConfiguration;
 import config.UserConfiguration;
 import org.springframework.boot.SpringApplication;
@@ -7,7 +8,8 @@ import org.springframework.context.annotation.Import;
 
 @Import({
         ResumeConfiguration.class,
-        UserConfiguration.class
+        UserConfiguration.class,
+        LoginConfiguration.class
 })
 @SpringBootConfiguration
 @EnableAutoConfiguration
