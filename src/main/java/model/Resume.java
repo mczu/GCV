@@ -15,6 +15,7 @@ public class Resume {
     private List<Language> languages;
     private List<Hobby> hobbies;
     private List<Skill> skills;
+    private List<Course> courses;
 
     @Setter
     @Getter
@@ -43,6 +44,7 @@ public class Resume {
         private String description;
         private String startDate;
         private String endDate;
+        private Boolean enabled;
 
         @Setter
         @Getter
@@ -59,6 +61,7 @@ public class Resume {
         private String degree;
         private String startDate;
         private String endDate;
+        private Boolean enabled;
 
         @Setter
         @Getter
@@ -72,18 +75,21 @@ public class Resume {
     public static class Language {
         private String name;
         private String level;
+        private Boolean enabled;
     }
 
     @Setter
     @Getter
     public static class Hobby {
         private String name;
+        private Boolean enabled;
     }
 
     @Setter
     @Getter
     public static class Skill {
         private String name;
+        private Boolean enabled;
     }
 
     @Setter
@@ -92,5 +98,6 @@ public class Resume {
         private String name;
         private String startDate;
         private String endDate;
+        private Boolean enabled;
     }
 }
