@@ -11,10 +11,16 @@
 
 <body>
   <div class="container" ng-app="myApp" ng-controller="myCtrl">
+      <div class="row">
+          <div class="col">
+          <h2>Generator CV</h2>
+          </div>
+      </div>
   <div class="row">
     <div class="col">
       <h3>Dane kontaktowe</h3>
-      <label>Imię:<input type="text" ng-model="firstName"></label>
+      <!-- <label>Imię:<input type="text" ng-model="firstName"></label> -->
+      <label>Imię:<input type="checkbox">{{ firstName }}</label>
       <label>Nazwisko:<input type="text" ng-model="lastName"></label>
       <label>e-mail:<input type="email" ng-model="email"></label>
       <label>numer kontaktowy:<input type="number" ng-model="phoneNumber"></label>
