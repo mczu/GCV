@@ -4,7 +4,9 @@ import config.UserConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import web.CORSFilter;
 
 @Import({
         ResumeConfiguration.class,
@@ -17,5 +19,10 @@ public class Application {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Bean
+    public CORSFilter corsFilter() {
+        return new CORSFilter();
     }
 }
