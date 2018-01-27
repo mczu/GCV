@@ -15,7 +15,7 @@ import repository.ResumeRepository;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Optional;
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -25,13 +25,12 @@ public class GenerateResumePdfRestController {
     @GetMapping("/resumes/{id}/pdf")
     public void generateResumePdf(@PathVariable String id, HttpServletResponse response) {
         response.setContentType("application/pdf");
-        response.addHeader("Content-disposition", "attachment; filename=CV");
+        response.addHeader("Content-disposition", "attachment; filename=CV.pdf");
 
-        Optional<Resume> resumeOptional = resumeRepository.find(new ResumeId(id));
+        Resume resume = resumeRepository.find(new ResumeId(id))
+                .orElse(new Resume());
 
-        if (resumeOptional.isPresent()) {
-            createDocument(resumeOptional.get(), response);
-        }
+        createDocument(resume, response);
     }
 
     private void createDocument(Resume resume, HttpServletResponse response) {
@@ -40,22 +39,107 @@ public class GenerateResumePdfRestController {
             PdfWriter.getInstance(document, response.getOutputStream());
             document.open();
             Font header = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD);
-            document.add(new Paragraph("Dane osobowe", header));
-            document.add(new Paragraph("Imie: " + resume.getPersonalData().getFirstName()));
-            document.add(new Paragraph("Nazwisko: " + resume.getPersonalData().getLastName()));
-            document.add(new Paragraph("E-Mail: " + resume.getPersonalData().getEmail()));
-            document.add(new Paragraph("Telefon: " + resume.getPersonalData().getPhone()));
-            document.add(new Paragraph("Data urodzenia: " + resume.getPersonalData().getBirthDate()));
-            document.add(new Paragraph("Adres: " + resume.getAddress().getStreet() + ", " + resume.getAddress().getPostalCode() + " " + resume.getAddress().getCity()));
 
-            document.add(new Paragraph(" "));
+            Resume.PersonalData personalData = resume.getPersonalData();
 
-            document.add(new Paragraph("Doświadczenie zawodowe", header));
-            for (Resume.WorkExperience workExperience : resume.getWorkExperiences()) {
-                if (workExperience.getEnabled()) {
-                    document.add(new Paragraph(workExperience.getStartDate() + " - " + workExperience.getEndDate() + ", " + workExperience.getCompany().getName() + ", " + workExperience.getCompany().getCity()));
-                    document.add(new Paragraph("Stanowisko: " + workExperience.getPosition()));
-                    document.add(new Paragraph("Opis:" + workExperience.getDescription()));
+            if (personalData != null) {
+                document.add(new Paragraph("Dane osobowe", header));
+                document.add(new Paragraph("Imie: " + personalData.getFirstName()));
+                document.add(new Paragraph("Nazwisko: " + personalData.getLastName()));
+                document.add(new Paragraph("E-Mail: " + personalData.getEmail()));
+                document.add(new Paragraph("Telefon: " + personalData.getPhone()));
+                document.add(new Paragraph("Data urodzenia: " + personalData.getBirthDate()));
+            }
+
+            Resume.Address address = resume.getAddress();
+
+            if (address != null) {
+                document.add(new Paragraph("Adres: " + address.getStreet() + ", " + address.getPostalCode() + " " + address.getCity()));
+            }
+
+            List<Resume.WorkExperience> workExperiences = resume.getWorkExperiences();
+            if (workExperiences != null) {
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Doswiadczenie zawodowe", header));
+
+                for (Resume.WorkExperience workExperience : workExperiences) {
+                    if (workExperience.getEnabled()) {
+                        Resume.WorkExperience.Company company = workExperience.getCompany();
+                        if (company != null) {
+                            document.add(new Paragraph(workExperience.getStartDate() + " - " + workExperience.getEndDate() + ", " + company.getName() + ", " + company.getCity()));
+                        } else {
+                            document.add(new Paragraph(workExperience.getStartDate() + " - " + workExperience.getEndDate()));
+                        }
+
+                        document.add(new Paragraph("Stanowisko: " + workExperience.getPosition()));
+                        document.add(new Paragraph("Opis:" + workExperience.getDescription()));
+                    }
+                }
+            }
+
+            List<Resume.Education> educations = resume.getEducations();
+            if (educations != null) {
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Edukacja", header));
+
+                for (Resume.Education education : educations) {
+                    if (education.getEnabled()) {
+                        Resume.Education.School school = education.getSchool();
+                        if (school != null) {
+                            document.add(new Paragraph(education.getStartDate() + " - " + education.getEndDate() + ", " + school.getName()));
+                        } else {
+                            document.add(new Paragraph(education.getStartDate() + " - " + education.getEndDate()));
+                        }
+                        document.add(new Paragraph("Stopien: " + education.getDegree()));
+                    }
+                }
+            }
+
+            List<Resume.Language> languages = resume.getLanguages();
+            if (languages != null) {
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Jezyki obce", header));
+
+                for (Resume.Language language : languages) {
+                    if (language.getEnabled()) {
+                        document.add(new Paragraph(language.getName() + ": " + language.getLevel()));
+                    }
+                }
+            }
+
+            List<Resume.Hobby> hobbies = resume.getHobbies();
+            if (hobbies != null) {
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Zainteresowania", header));
+
+                for (Resume.Hobby hobby : hobbies) {
+                    if (hobby.getEnabled()) {
+                        document.add(new Paragraph(hobby.getName()));
+                    }
+                }
+            }
+
+            List<Resume.Skill> skills = resume.getSkills();
+            if (skills != null) {
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Umiejetnosci", header));
+
+                for (Resume.Skill skill : skills) {
+                    if (skill.getEnabled()) {
+                        document.add(new Paragraph(skill.getName()));
+                    }
+                }
+            }
+
+            List<Resume.Course> courses = resume.getCourses();
+            if (courses != null) {
+                document.add(new Paragraph(" "));
+                document.add(new Paragraph("Kursy / Szkolenia", header));
+
+                for (Resume.Course course : courses) {
+                    if (course.getEnabled()) {
+                        document.add(new Paragraph(course.getStartDate() + " - " + course.getEndDate() + ", " + course.getName()));
+                    }
                 }
             }
 
