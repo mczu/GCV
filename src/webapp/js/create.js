@@ -9,9 +9,6 @@ var ad_street = document.getElementById("ad_street").value;
 var ad_postalCode = document.getElementById("ad_postalCode").value;
 var ad_city = document.getElementById("ad_city").value;
 
-function prepareRegistrationData() {
-    console.log(password);
-}
 
 function createPersonalDataObject() {
     var personalData = {};
@@ -21,10 +18,11 @@ function createPersonalDataObject() {
     personalData.phone = pd_phone;
     personalData.birthDate = pd_birthDate;
     personalData.photo = pd_photo;
+    console.log(personalData);
     return personalData;
 }
 
-function createAddressObject() {
+/*function createAddressObject() {
     var address = {};
     address["street"] = ad_street;
     address["postalCode"] = ad_postalCode;
@@ -49,18 +47,18 @@ function createWorkExperiencesObject() {
 function createEducationsObject() {
     var school = {};
     var educations = [{}];
-}
+}*/
 
 function createCVObject() {
     var completeCVObject = {};
     completeCVObject.personalData = createPersonalDataObject();
-    completeCVObject.address = createAddressObject();
+    /*completeCVObject.address = createAddressObject();
     completeCVObject.workExperiences = createWorkExperiencesObject();
     completeCVObject.educations = createEducationsObjects();
     completeCVObject.languages = createLanguages();
     completeCVObject.hobbies = createHobbies();
     completeCVObject.skills = createSkills();
-    completeCVObject.courses = createCourses();
+    completeCVObject.courses = createCourses();*/
     return completeCVObject;
 }
 

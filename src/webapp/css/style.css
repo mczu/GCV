@@ -8,7 +8,7 @@ h5 {
   padding-top: 10px;
   }
 
-h2.welcome {
+h2.welcome, h4.welcome {
   text-align: center;
   margin-bottom: 1em;
   margin-top: 1em;
