@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import repository.ResumeRepository;
 import repository.ResumeRepositoryMap;
 import web.FindResumeRestController;
+import web.GenerateResumePdfRestController;
 import web.UpdateResumeRestController;
 
 @Configuration
@@ -27,5 +28,12 @@ public class ResumeConfiguration {
             ResumeRepository resumeRepository
     ) {
         return new UpdateResumeRestController(resumeRepository);
+    }
+
+    @Bean
+    public GenerateResumePdfRestController generateResumePdfRestController(
+            ResumeRepository resumeRepository
+    ) {
+        return new GenerateResumePdfRestController(resumeRepository);
     }
 }
