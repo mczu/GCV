@@ -1,5 +1,11 @@
 var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
+app.controller('myCtrl', function($scope, $http) {
+
+     $http.get("http://localhost:8080/resumes/114646fb9c6b4d43aebe7a54b813e3b6")
+        .then(function(response) {
+            console.log(response.data);
+        });
+
   //general data
   $scope.firstName= "Jan";
   $scope.lastName= "Kowalski";
