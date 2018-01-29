@@ -1,60 +1,16 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
 
-     $http.get("http://localhost:8080/resumes/114646fb9c6b4d43aebe7a54b813e3b6")
+     $http.get("http://localhost:8080/resumes/faa9da7a14bf43f694694605392c2c24")
         .then(function(response) {
             console.log(response.data);
+            $scope.personalData = response.data.personalData;
+            $scope.address = response.data.address;
+            $scope.workExperiences = response.data.workExperiences;
+            $scope.educations = response.data.educations;
+            $scope.courses = response.data.courses;
+            $scope.languages = response.data.languages;
+            $scope.skills = response.data.skills;
+            $scope.hobbies = response.data.hobbies;
         });
-
-  //general data
-  $scope.firstName= "Jan";
-  $scope.lastName= "Kowalski";
-  $scope.email = "jan.kowalski@gmail.com";
-  $scope.phoneNumber = 596690424;
-  $scope.address = "Gdansk";
-  $scope.fullName = function(){
-    return $scope.firstName + " " + $scope.lastName;
-  };
-  //experience
-  $scope.startDate= 2014;
-  $scope.endDate;
-  $scope.companyName = "IKM";
-  $scope.positionName = "organizator wydarzeń";
-  $scope.positionDescription = "organizowanie eventów";
-  //experience
-  $scope.experience = [
-  {
-  "startDate" : 2013,
-  "endDate" : 2013,
-  "companyName": "Świetlica",
-  "positionName": "asystent",
-  "positionDescription" : "asystowanie"
-  },
-  {
-  "startDate" : 2013,
-  "endDate" : 2013,
-  "companyName": "Świetlica",
-  "positionName": "asystent",
-  "positionDescription" : "asystowanie"
-   }
-   ];
-  //education
-  $scope.schoolStartDate= 2010;
-  $scope.schoolEndDate= 2015;
-  $scope.schoolName = "Uniwersytet Gdański";
-  $scope.schoolSubject = "Kulturoznawstwo";
-  $scope.degree = "magister kulturoznawstwa";
-  //courses
-  $scope.courseYear = 2013;
-  $scope.courseOrganization = "Atena - Kursy i Szkolenia";
-  $scope.courseName = "Zarządzanie projektami";
-  $scope.courseDescription = "w organizacjach kultury i pozarządowych";
-  //language skills
-  $scope.foreignLanguage = "angielski";
-  $scope.languageLevel = "B2";
-  $scope.languages = ["angielski", "niemiecki", "hiszpański", "japoński", "rosyjski"];
-  //skills
-  $scope.skill = "obsługa pakietu Office";
-  //hobbies
-  $scope.hobby = "wyjazdy na safari, survival";
 });

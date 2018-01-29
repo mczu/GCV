@@ -32,31 +32,45 @@
     <div class="row">
         <div class="col">
             <div class="cv">
-                <h5>Podgląd CV</h5>
-                {{ fullName() }}<br>
-                {{ email }}<br>
-                {{ phoneNumber }}<br>
-                {{ address }}<br>
+                <h5>Dane kontaktowe</h5>
+                {{ personalData.firstName }}{{ personalData.lastName }}<br>
+                {{ personalData.email }}<br>
+                {{ personalData.phone }}<br>
+                {{ personalData.birthDate }}<br>
+                {{ personalData.photo }}<br>
+                {{ address.city }}{{ address.postalCode }}{{ address.street }}<br>
                 <h5>Doświadczenie</h5>
-                {{ startDate + "-" + endDate + " " + companyName + "-" + positionName }}
-                {{ positionDescription }}
                 <ul>
-                    <li ng-repeat="x in experience">{{ x.startDate + " - " + x.endDate + " " + x.companyName + " - " +
-                        x.positionName + "(" + x.positionDescription + ")" }}
+                    <li ng-repeat="x in workExperiences">{{ x.startDate + " - " + x.endDate + " " + x.company + " - " +
+                        x.position + "(" + x.description + ")" }}
                     </li>
                 </ul>
                 <h5>Wykształcenie</h5>
-                {{ schoolStartDate + "-" + schoolEndDate + " " + schoolName + "-" + schoolSubject }}
-                {{ degree }}
+                <ul>
+                    <li ng-repeat="x in educations">{{ x.startDate + " - " + x.endDate + " " + x.company + " - " +
+                        x.position + "(" + x.description + ")" }}
+                    </li>
+                </ul>
                 <h5>Kursy i szkolenia</h5>
-                {{ courseYear + " " + courseOrganization + " " + courseName }}
-                {{ courseDescription }}
+                <ul>
+                    <li ng-repeat="x in courses">{{ x.name + " " + x.startDate + " - " + x.endDate }}
+                    </li>
+                </ul>
                 <h5>Języki obce</h5>
-                {{ foreignLanguage + " " + languageLevel }}
+                <ul>
+                    <li ng-repeat="x in languages">{{ x.name + " - " + x.level  }}
+                    </li>
+                </ul>
                 <h5>Umięjętności</h5>
-                {{ skill }}
+                <ul>
+                    <li ng-repeat="x in skills">{{ x.name }}
+                    </li>
+                </ul>
                 <h5>Hobby</h5>
-                {{ hobby }}
+                <ul>
+                    <li ng-repeat="x in hobbies">{{ x.name }}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
