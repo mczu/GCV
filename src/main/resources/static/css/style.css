@@ -17,8 +17,20 @@ h2.welcome, h4.welcome {
   padding: 15%;
 }
 nav {
-    border-bottom: 3px solid #0275d8;
+  border-bottom: 3px solid #0275d8;
 }
 .container {
-    margin-top: 2em;
+  margin-top: 2em;
+}
+.user-box {
+  border: 2px solid #0275d8;
+  margin: 1em;
+  font-size: 1em;
+}
+.user-view {
+  display: none;
+}
+.guest-view {
+
+
 }
