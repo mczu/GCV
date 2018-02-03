@@ -11,26 +11,26 @@ function createRegistrationObject() {
     return RegistrationObject;
 }
 
-var url = 'http://localhost:8080/users';
-
-var newData = JSON.stringify(createRegistrationObject());
-
-var request = new Request(url, {
-    method: 'POST',
-    body: newData,
-    headers: new Headers({
-        'Content-Type': 'application/json'
-    })
-});
-
 function sendRegistrationData() {
+    var url = 'http://localhost:8080/users';
+    var newData = JSON.stringify(createRegistrationObject());
+    var request = new Request(url, {
+        method: 'POST',
+        body: newData,
+        headers: new Headers({
+            'Content-Type': 'application/json'
+        })
+    });
     console.log(newData);
     fetch(request)
         .then(function (data) {
             // Handle response we get from the API
-            console.log(data);
+            console.log(data.responseText);
+            swal("Konto zarejestrowane", "Nastąpi teraz przejście do okna logowania")
+                .then(function () {
+                    window.location.href = "http://localhost:8080/logging.html";
+                });
         });
-    //if ok -> login
 }
 
 document.getElementById("submitRegistrationData").addEventListener("click", sendRegistrationData);

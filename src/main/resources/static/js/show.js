@@ -1,7 +1,13 @@
+var cvUrl = localStorage.getItem("userUrl");
+console.log(cvUrl);
+
+var showUrl = "resumes\/" + cvUrl;
+console.log(showUrl);
+
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
 
-     $http.get("resumes/faa9da7a14bf43f694694605392c2c24")
+     $http.get(showUrl)
         .then(function(response) {
             console.log(response.data);
             $scope.personalData = response.data.personalData;

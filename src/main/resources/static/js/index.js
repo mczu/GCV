@@ -1,3 +1,9 @@
+var cvUrl = localStorage.getItem("userUrl");
+console.log(cvUrl);
+
+var showUrl = "resumes\/" + cvUrl;
+console.log(showUrl);
+
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
   //general data
