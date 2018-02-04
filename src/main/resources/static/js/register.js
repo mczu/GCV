@@ -12,7 +12,7 @@ function createRegistrationObject() {
 }
 
 function sendRegistrationData() {
-    var url = 'http://localhost:8080/users';
+    var url = '/users';
     var newData = JSON.stringify(createRegistrationObject());
     var request = new Request(url, {
         method: 'POST',
@@ -28,7 +28,7 @@ function sendRegistrationData() {
             console.log(data.responseText);
             swal("Konto zarejestrowane", "Nastąpi teraz przejście do okna logowania")
                 .then(function () {
-                    window.location.href = "http://localhost:8080/logging.html";
+                    window.location.href = "/logging.html";
                 });
         });
 }

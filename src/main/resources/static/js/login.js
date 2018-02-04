@@ -9,7 +9,7 @@ function createLoginObject() {
 }
 
 function sendLoginData() {
-    var urlLog = 'http://localhost:8080/login';
+    var urlLog = '/login';
     var newData = JSON.stringify(createLoginObject());
     var requestLog = new Request(urlLog, {
         method: 'POST',
@@ -31,7 +31,7 @@ function sendLoginData() {
             }));
             swal("Logowanie udane!", "Nastąpi teraz przejście do panelu użytkownika")
                 .then(function(){
-                    window.location.href = "http://localhost:8080/register.html";
+                    window.location.href = "/register.html";
                 });
         })
      /*   .catch(function(error) {
