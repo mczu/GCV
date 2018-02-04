@@ -4,6 +4,9 @@ console.log(cvUrl);
 var showUrl = "resumes\/" + cvUrl;
 console.log(showUrl);
 
+var showPdfUrl = "resumes\/" + cvUrl + "\/pdf";
+console.log(showPdfUrl);
+
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
 
@@ -20,3 +23,23 @@ app.controller('myCtrl', function($scope, $http) {
             $scope.hobbies = response.data.hobbies;
         });
 });
+
+function sendAndCreatePdf() {
+    var urlLog = showPdfUrl;
+    var requestLog = new Request(urlLog, {
+        method: 'GET',
+        headers: new Headers({
+        })
+    });
+    fetch(requestLog)
+        .then(function (response) {
+            // Handle response we get from the API
+            console.log(response);
+            console.log(response.body);
+        })
+    /*   .catch(function(error) {
+               // If there is any error you will catch them here
+       });*/
+}
+
+document.getElementById("create-pdf").addEventListener("click", sendAndCreatePdf);
