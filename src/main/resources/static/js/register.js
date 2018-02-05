@@ -32,5 +32,25 @@ function sendRegistrationData() {
                 });
         });
 }
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
 
-document.getElementById("submitRegistrationData").addEventListener("click", sendRegistrationData);
+function validateRegistering(){
+    var login = document.getElementById("registerInputPassword1").value;
+    var password = document.getElementById("registerInputPassword1").value;
+    var email = document.getElementById("registerInputEmail1").value;
+
+    if(login && password && email !== null){
+        if(validateEmail(email)){
+            sendRegistrationData();
+        }
+        swal("Wpisz poprawny email");
+    } else {
+        swal("Wpisz dane rejestracji");
+    }
+}
+
+//document.getElementById("submitRegistrationData").addEventListener("click", sendRegistrationData);
+document.getElementById("submitRegistrationData").addEventListener("click", validateRegistering);
