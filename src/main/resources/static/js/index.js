@@ -194,3 +194,54 @@ function previewAddressPostalCode(value){
 function previewAddressCity(value){
     document.getElementById("preview-address-city").innerHTML = value;
 }
+function previewExperiencesCompanyName(value){
+    document.getElementById("preview-experiences-company-name").innerHTML = value;
+}
+function previewExperiencesCompanyCity(value){
+    document.getElementById("preview-experiences-company-city").innerHTML = value;
+}
+function previewExperiencesPosition(value){
+    document.getElementById("preview-experiences-position").innerHTML = value;
+}
+function previewExperiencesDescription(value){
+    document.getElementById("preview-experiences-description").innerHTML = value;
+}
+function previewExperiencesStartDate(value){
+    document.getElementById("preview-experiences-startDate").innerHTML = value;
+}
+function previewExperiencesEndDate(value){
+    document.getElementById("preview-experiences-endDate").innerHTML = value;
+}
+function previewEducationsSchoolName(value){
+    document.getElementById("preview-educations-school-name").innerHTML = value;
+}
+function previewEducationsDegree(value){
+    document.getElementById("preview-educations-degree").innerHTML = value;
+}
+function previewEducationsStartDate(value){
+    document.getElementById("preview-educations-startDate").innerHTML = value;
+}
+function previewEducationsEndDate(value){
+    document.getElementById("preview-educations-endDate").innerHTML = value;
+}
+function previewLanguagesName(value){
+    document.getElementById("preview-languages-name").innerHTML = value;
+}
+function previewLanguagesLevel(value){
+    document.getElementById("preview-languages-level").innerHTML = value;
+}
+function previewHobbiesName(value){
+    document.getElementById("preview-hobbies-name").innerHTML = value;
+}
+function previewSkillsName(value){
+    document.getElementById("preview-skills-name").innerHTML = value;
+}
+function previewCoursesName(value){
+    document.getElementById("preview-courses-name").innerHTML = value;
+}
+function previewCoursesStartDate(value){
+    document.getElementById("preview-courses-startDate").innerHTML = value;
+}
+function previewCoursesEndDate(value){
+    document.getElementById("preview-courses-endDate").innerHTML = value;
+}

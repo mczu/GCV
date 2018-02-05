@@ -14,7 +14,7 @@
     <ul class="nav">
         <a class="navbar-brand" href="index.html">Generator GCV</a>
         <li class="nav-item">
-            <a class="nav-item nav-link active" href="create.html">Stwórz CV</a>
+            <a class="nav-item nav-link active" href="register.html">Panel użytkownika</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -43,56 +43,66 @@
                   <label>kod pocztowy:<input type="text" id="address-postalCode" onchange="previewAddressPostalCode(this.value)"></label>
                   <label>miasto:<input type="text" id="address-city" onchange="previewAddressCity(this.value)"></label>
                   <h3>Doświadczenie</h3>
-                  <label>rok rozpoczęcia:<input type="text" id="experiences-startDate"></label>
-                  <label>rok zakończenia:<input type="text" id="experiences-endDate"></label>
-                  <label>nazwa firmy:<input type="text" id="experiences-company-name"></label>
-                  <label>siedziba firmy:<input type="text" id="experiences-company-city"></label>
-                  <label>stanowisko:<input type="text" id="experiences-position"></label>
-                  <label>opis zadań:<input type="text" id="experiences-description"></label>
+                  <label>rok rozpoczęcia:<input type="text" id="experiences-startDate" onchange="previewExperiencesStartDate(this.value)"></label>
+                  <label>rok zakończenia:<input type="text" id="experiences-endDate" onchange="previewExperiencesEndDate(this.value)"></label>
+                  <label>nazwa firmy:<input type="text" id="experiences-company-name" onchange="previewExperiencesCompanyName(this.value)"></label>
+                  <label>siedziba firmy:<input type="text" id="experiences-company-city" onchange="previewExperiencesCompanyCity(this.value)"></label>
+                  <label>stanowisko:<input type="text" id="experiences-position" onchange="previewExperiencesPosition(this.value)"></label>
+                  <label>opis zadań:<input type="text" id="experiences-description" onchange="previewExperiencesDescription(this.value)"></label>
                   <h3>Wykształcenie</h3>
-                  <label>rok rozpoczęcia:<input type="number" id="educations-startDate"></label>
-                  <label>rok zakończenia:<input type="number" id="educations-endDate"></label>
-                  <label>nazwa uczelni:<input type="text" id="educations-school-name"></label>
-                  <label>tytuł:<input type="text" id="educations-degree"></label>
+                  <label>rok rozpoczęcia:<input type="number" id="educations-startDate" onchange="previewEducationsStartDate(this.value)"></label>
+                  <label>rok zakończenia:<input type="number" id="educations-endDate" onchange="previewEducationsEndDate(this.value)"></label>
+                  <label>nazwa uczelni:<input type="text" id="educations-school-name" onchange="previewEducationsSchoolName(this.value)"></label>
+                  <label>tytuł:<input type="text" id="educations-degree" onchange="previewEducationsDegree(this.value)"></label>
                   <h3>Kursy i szkolenia</h3>
-                  <label>rok:<input type="number" id="courses-startDate"></label>
-                  <label>rok:<input type="number" id="courses-endDate"></label>
-                  <label>nazwa szkolenia:<input type="text" id="courses-name"></label>
+                  <label>rok:<input type="number" id="courses-startDate" onchange="previewCoursesStartDate(this.value)"></label>
+                  <label>rok:<input type="number" id="courses-endDate" onchange="previewCoursesEndDate(this.value)"></label>
+                  <label>nazwa szkolenia:<input type="text" id="courses-name" onchange="previewCoursesName(this.value)"></label>
                   <h3>Znajomość języków</h3>
-                  <label>język obcy:<input type="text" id="languages-name"></label>
-                  <label>poziom znajomości:<input type="text" id="languages-level"></label>
+                  <label>język obcy:<input type="text" id="languages-name" onchange="previewLanguagesName(this.value)"></label>
+                  <label>poziom znajomości:<input type="text" id="languages-level" onchange="previewLanguagesLevel(this.value)"></label>
                   <h3>Umiejętności</h3>
-                  <label>nazwa umiejętności:<input type="text" id="skills-name"></label>
+                  <label>nazwa umiejętności:<input type="text" id="skills-name" onchange="previewSkillsName(this.value)"></label>
                   <h3>Zainteresowania</h3>
-                  <label>hobby:<input type="text" id="hobbies-name"></label>
+                  <label>hobby:<input type="text" id="hobbies-name" onchange="previewHobbiesName(this.value)"></label>
               </form>
               <button type="button" class="btn btn-primary" id="sendCurriculumData">Generuj CV</button>
           </div>
               <div class="col">
                   <div class="cv">
                       <h5>Podgląd CV</h5>
-                     <p id="preview-personalData-firstName"></p><br>
-                      <p id="preview-personalData-lastName"></p><br>
-                      <p id="preview-personalData-email"></p><br>
-                      <p id="preview-personalData-phone"></p><br>
-                      <p id="preview-personalData-birthDate"></p><br>
-                      <p id="preview-personalData-photo"></p><br>
-                      <p id="preview-address-street"></p><br>
-                      <p id="preview-address-city"></p><br>
-                      <p id="preview-address-postalCode"></p><br>
-
+                     <p id="preview-personalData-firstName"></p>
+                      <p id="preview-personalData-lastName"></p>
+                      <p id="preview-personalData-email"></p>
+                      <p id="preview-personalData-phone"></p>
+                      <p id="preview-personalData-birthDate"></p>
+                      <p id="preview-personalData-photo"></p>
+                      <p id="preview-address-street"></p>
+                      <p id="preview-address-city"></p>
+                      <p id="preview-address-postalCode"></p>
                       <h5>Doświadczenie</h5>
-
+                      <p id="preview-experiences-startDate"></p>
+                      <p id="preview-experiences-endDate"></p>
+                      <p id="preview-experiences-company-name"></p>
+                      <p id="preview-experiences-company-city"></p>
+                      <p id="preview-experiences-position"></p>
+                      <p id="preview-experiences-description"></p>
                       <h5>Wykształcenie</h5>
-
+                      <p id="preview-educations-startDate"></p>
+                      <p id="preview-educations-endDate"></p>
+                      <p id="preview-educations-school-name"></p>
+                      <p id="preview-educations-degree"></p>
                       <h5>Kursy i szkolenia</h5>
-
+                      <p id="preview-courses-startDate"></p>
+                      <p id="preview-courses-endDate"></p>
+                      <p id="preview-courses-name"></p>
                       <h5>Języki obce</h5>
-
+                      <p id="preview-languages-name"></p>
+                      <p id="preview-languages-level"></p>
                       <h5>Umięjętności</h5>
-
+                      <p id="preview-skills-name"></p>
                       <h5>Hobby</h5>
-
+                      <p id="preview-hobbies-name"></p>
                   </div>
           </div>
       </div>
