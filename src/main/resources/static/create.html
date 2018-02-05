@@ -27,78 +27,72 @@
         </li>
     </ul>
 </nav>
-  <div class="container" ng-app="myApp" ng-controller="myCtrl">
+  <div class="container">
       <h4 class="welcome">Tworzenie CV</h4>
       <div class="row">
           <div class="col">
-              <h3>Dane kontaktowe</h3>
               <form>
-                  <label>Imię:<input type="text" ng-model="firstName" id="pd_firstName"></label>
-                  <label>Nazwisko:<input type="text" ng-model="lastName" id="pd_lastName"></label>
-                  <label>e-mail:<input type="email" ng-model="email" id="pd_email"></label>
-                  <label>numer kontaktowy:<input type="number" ng-model="phoneNumber" id="pd_phone"></label>
-                  <label>data urodzenia:<input type="text" id="pd_birthDate"></label>
-                  <h3>Zdjęcie</h3>
-                  <label>Dodaj zdjęcie:<input type="text" id="pd_photo"></label>
-                  <!-- upload a file -->
-                  <label>ulica:<input type="text" ng-model="address" id="ad_street"></label>
-                  <label>kod pocztowy:<input type="text" ng-model="address" id="ad_postalCode"></label>
-                  <label>miasto:<input type="text" ng-model="address" id="ad_city"></label>
+                  <h3>Dane kontaktowe</h3>
+                  <label>Imię:<input type="text" id="personalData-firstName" onchange="previewPersonalDataFirstName(this.value)"></label>
+                  <label>Nazwisko:<input type="text" id="personalData-lastName" onchange="previewPersonalDataLastName(this.value)"></label>
+                  <label>e-mail:<input type="email" id="personalData-email" onchange="previewPersonalDataEmail(this.value)"></label>
+                  <label>numer kontaktowy:<input type="number" id="personalData-phone" onchange="previewPersonalDataPhone(this.value)"></label>
+                  <label>data urodzenia:<input type="text" id="personalData-birthDate" onchange="previewPersonalDataBirthDate(this.value)"></label>
+                  <label>Dodaj zdjęcie:<input type="text" id="personalData-photo" onchange="previewPersonalDataPhoto(this.value)"></label>
+                  <label>ulica:<input type="text" id="address-street" onchange="previewAddressStreet(this.value)"></label>
+                  <label>kod pocztowy:<input type="text" id="address-postalCode" onchange="previewAddressPostalCode(this.value)"></label>
+                  <label>miasto:<input type="text" id="address-city" onchange="previewAddressCity(this.value)"></label>
                   <h3>Doświadczenie</h3>
-                  <label>rok rozpoczęcia:<input type="text" ng-model="startDate" id="ex_startDate"></label>
-                  <label>rok zakończenia:<input type="text" ng-model="endDate" id="ex_endDate"></label>
-                  <label>nazwa firmy:<input type="text" ng-model="companyName" id="ex_com_name"></label>
-                  <label>siedziba firmy:<input type="text" id="ex_com_city"></label>
-                  <label>stanowisko:<input type="text" ng-model="positionName" id="ex_position"></label>
-                  <label>opis zadań:<input type="text" ng-model="positionDescription" id="ex_description"></label>
+                  <label>rok rozpoczęcia:<input type="text" id="experiences-startDate"></label>
+                  <label>rok zakończenia:<input type="text" id="experiences-endDate"></label>
+                  <label>nazwa firmy:<input type="text" id="experiences-company-name"></label>
+                  <label>siedziba firmy:<input type="text" id="experiences-company-city"></label>
+                  <label>stanowisko:<input type="text" id="experiences-position"></label>
+                  <label>opis zadań:<input type="text" id="experiences-description"></label>
                   <h3>Wykształcenie</h3>
-                  <label>rok rozpoczęcia:<input type="number" ng-model="schoolStartDate" id="ed_startDate"></label>
-                  <label>rok zakończenia:<input type="number" ng-model="schoolEndDate" id="ed_endDate"></label>
-                  <label>nazwa uczelni:<input type="text" ng-model="schoolName" id="ed_school_name"></label>
-                  <label>kierunek:<input type="text" ng-model="schoolSubject" id=""></label>
-                  <label>tytuł:<input type="text" ng-model="degree" id="ed_degree"></label>
+                  <label>rok rozpoczęcia:<input type="number" id="educations-startDate"></label>
+                  <label>rok zakończenia:<input type="number" id="educations-endDate"></label>
+                  <label>nazwa uczelni:<input type="text" id="educations-school-name"></label>
+                  <label>tytuł:<input type="text" id="educations-degree"></label>
                   <h3>Kursy i szkolenia</h3>
-                  <label>rok:<input type="number" ng-model="courseYear" id="course_startDate"></label>
-                  <label>nazwa organizacji:<input type="text" ng-model="courseOrganization"></label>
-                  <label>nazwa szkolenia:<input type="text" ng-model="courseName" id="course_name"></label>
-                  <label>opis szkolenia:<input type="text" ng-model="courseDescription"></label>
+                  <label>rok:<input type="number" id="courses-startDate"></label>
+                  <label>rok:<input type="number" id="courses-endDate"></label>
+                  <label>nazwa szkolenia:<input type="text" id="courses-name"></label>
                   <h3>Znajomość języków</h3>
-                  <label>język obcy:<input type="text" ng-model="foreignLanguage" id="lang_name"></label>
-                  <label>poziom znajomości:<input type="text" ng-model="languageLevel" id="lang_level"></label>
+                  <label>język obcy:<input type="text" id="languages-name"></label>
+                  <label>poziom znajomości:<input type="text" id="languages-level"></label>
                   <h3>Umiejętności</h3>
-                  <label>nazwa umiejętności:<input type="text" ng-model="skill" id="skills_name"></label>
+                  <label>nazwa umiejętności:<input type="text" id="skills-name"></label>
                   <h3>Zainteresowania</h3>
-                  <label>hobby:<input type="text" ng-model="hobby" id="name"></label>
+                  <label>hobby:<input type="text" id="hobbies-name"></label>
               </form>
-              <button type="button" class="btn btn-primary" id="generateCV">Generuj CV</button>
-
+              <button type="button" class="btn btn-primary" id="sendCurriculumData">Generuj CV</button>
+          </div>
+              <div class="col">
                   <div class="cv">
                       <h5>Podgląd CV</h5>
-                      {{ fullName() }}<br>
-                      {{ email }}<br>
-                      {{ phoneNumber }}<br>
-                      {{ address }}<br>
+                     <p id="preview-personalData-firstName"></p><br>
+                      <p id="preview-personalData-lastName"></p><br>
+                      <p id="preview-personalData-email"></p><br>
+                      <p id="preview-personalData-phone"></p><br>
+                      <p id="preview-personalData-birthDate"></p><br>
+                      <p id="preview-personalData-photo"></p><br>
+                      <p id="preview-address-street"></p><br>
+                      <p id="preview-address-city"></p><br>
+                      <p id="preview-address-postalCode"></p><br>
+
                       <h5>Doświadczenie</h5>
-                      {{ startDate + "-" + endDate + " " + companyName + "-" + positionName }}
-                      {{ positionDescription }}
-                      <ul>
-                          <li ng-repeat="x in experience">{{ x.startDate + " - " + x.endDate + " " + x.companyName +
-                              " - " +
-                              x.positionName + "(" + x.positionDescription + ")" }}
-                          </li>
-                      </ul>
+
                       <h5>Wykształcenie</h5>
-                      {{ schoolStartDate + "-" + schoolEndDate + " " + schoolName + "-" + schoolSubject }}
-                      {{ degree }}
+
                       <h5>Kursy i szkolenia</h5>
-                      {{ courseYear + " " + courseOrganization + " " + courseName }}
-                      {{ courseDescription }}
+
                       <h5>Języki obce</h5>
-                      {{ foreignLanguage + " " + languageLevel }}
+
                       <h5>Umięjętności</h5>
-                      {{ skill }}
+
                       <h5>Hobby</h5>
-                      {{ hobby }}
+
                   </div>
           </div>
       </div>
@@ -108,7 +102,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
-<script src="js/angular.js"></script>
 <script src="js/index.js"></script>
 
 </body>
