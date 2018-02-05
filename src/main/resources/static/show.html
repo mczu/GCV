@@ -41,13 +41,13 @@
                 {{ address.city }}{{ address.postalCode }}{{ address.street }}<br>
                 <h5>Doświadczenie</h5>
                 <ul>
-                    <li ng-repeat="x in workExperiences">{{ x.startDate + " - " + x.endDate + " " + x.company + " - " +
+                    <li ng-repeat="x in workExperiences">{{ x.startDate + " - " + x.endDate + " " + x.company.name + " - " +
                         x.position + "(" + x.description + ")" }}
                     </li>
                 </ul>
                 <h5>Wykształcenie</h5>
                 <ul>
-                    <li ng-repeat="x in educations">{{ x.startDate + " - " + x.endDate + " " + x.company + " - " +
+                    <li ng-repeat="x in educations">{{ x.startDate + " - " + x.endDate + " " + x.school.name + " - " +
                         x.position + "(" + x.description + ")" }}
                     </li>
                 </ul>
