@@ -3,19 +3,20 @@ package model;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Setter
 @Getter
 public class Resume {
-    private PersonalData personalData;
-    private Address address;
-    private List<WorkExperience> workExperiences;
-    private List<Education> educations;
-    private List<Language> languages;
-    private List<Hobby> hobbies;
-    private List<Skill> skills;
-    private List<Course> courses;
+    private PersonalData personalData = new PersonalData();
+    private Address address = new Address();
+    private List<WorkExperience> workExperiences = new ArrayList<>();
+    private List<Education> educations = new ArrayList<>();
+    private List<Language> languages = new ArrayList<>();
+    private List<Hobby> hobbies = new ArrayList<>();
+    private List<Skill> skills = new ArrayList<>();
+    private List<Course> courses = new ArrayList<>();
 
     @Setter
     @Getter

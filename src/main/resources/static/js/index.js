@@ -156,7 +156,7 @@ function sendCurriculumData() {
             // Handle response we get from the API
            /* swal("Generowanie CV udane!", "Nastąpi teraz przejście do panelu użytkownika")
                 .then(function(){
-                    window.location.href = "http://localhost:8080/register.html";
+                    window.location.href = "/register.html";
                 });*/
         })
     .catch(function(error) {
